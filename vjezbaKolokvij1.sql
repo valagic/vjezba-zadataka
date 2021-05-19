@@ -75,3 +75,10 @@ create table mladic(
 	dukserica varchar(48) not null,
 	muskarac int
 );
+
+alter table sestra_svekar add foreign key(sestra) references sestra(sifra);
+alter table zena add foreign key(sestra) references sestra(sifra);
+alter table cura add foreign key(punac) references punac(sifra);
+alter table sestra_svekar add foreign key(svekar) references svekar(sifra);
+alter table muskarac add foreign key(zena) references zena(sifra);
+alter table mladic add foreign key(muskarac) references muskarac(sifra);
