@@ -90,9 +90,9 @@ insert into svekar(bojaociju) values
 ('crvena');
 
 insert into zena(kratkamajica,jmbg,bojaociju,sestra) values
-('sss',11111111111,'plava',1),
-('ddd',22222222222,'zelena',1),
-('fff',33333333333,'plava',1);
+('panakota',11111111111,'plava',1),
+('crvena',22222222222,'zelena',1),
+('narancasta',33333333333,'plava',1);
 
 insert into muskarac(bojaociju,maraka,zena) values
 ('smeda',232323232.34567,1),
@@ -124,3 +124,6 @@ insert into mladic(suknja,kuna,ekstroventno,dukserica) values
 select * from mladic;
 delete from mladic where kuna>15.78;
 select * from mladic;
+
+select * from zena;
+select * from zena where kratkamajica like '%ana%';
