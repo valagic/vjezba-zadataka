@@ -110,4 +110,17 @@ select * from svekar;
 select * from zena;
 select * from muskarac;
 
+insert into cura(novcica,gustoca,ogrlica) values
+(33333333333.55555,564456456456.123123,1);
+select * from cura;
+update cura set gustoca=15.77 where sifra=1;
+select * from cura;
 
+insert into mladic(suknja,kuna,ekstroventno,dukserica) values
+('kratka',25.65,1,'zuta'),
+('kratka',35.65,1,'zuta'),
+('kratka',11.65,1,'zuta'),
+('kratka',5.65,1,'zuta');
+select * from mladic;
+delete from mladic where kuna>15.78;
+select * from mladic;
