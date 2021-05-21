@@ -129,5 +129,16 @@ select * from brat;
 delete from brat where ogrlica!=14;
 select * from brat;
 
+#Izlistajte suknja iz tablice cura uz uvjet da vrijednost kolone 
+#drugiputa nepoznate.
 
+select * from cura;
+insert into cura(haljina,drugiputa,majica) values
+('plava','2021-05-22','zuta'),
+('crvena','2021-05-23','plava'),
+('roza','2021-05-22','plava'),
+('smeda','2021-05-23','zuta'),
+('zelena','2021-05-24','crna');
+
+select * from cura where drugiputa is null;
 
