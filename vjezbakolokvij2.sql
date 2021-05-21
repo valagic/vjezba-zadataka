@@ -107,5 +107,14 @@ select * from decko_zarucnica;
 select * from cura;
 select * from neprijatelj;
 
+#tablica prijatelj kolona treciputa vrijednost na 30. travnja 2020.
+
+insert into svekar(ogrlica,asocijalno) values
+(1,1);
+insert into prijatelj(treciputa,ekstroventno,svekar) values
+('1994-04-04',1,1);
+update prijatelj set treciputa='2020-04-30';
+select * from prijatelj;
+
 
 
