@@ -69,3 +69,13 @@ create table neprijatelj (
 	jmbg char(11),
 	cura int
 );
+
+alter table cura add foreign key(decko) references decko(sifra);
+alter table decko_zarucnica add foreign key(decko) references decko(sifra);
+alter table prijatelj add foreign key(svekar) references svekar(sifra);
+alter table decko_zarucnica add foreign key(zarucnica) references zarucnica(sifra);
+alter table neprijatelj add foreign key(cura) references cura(sifra);
+alter table brat add foreign key(neprijatelj) references neprijatelj(sifra);
+
+
+
