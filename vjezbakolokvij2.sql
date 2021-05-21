@@ -116,5 +116,18 @@ insert into prijatelj(treciputa,ekstroventno,svekar) values
 update prijatelj set treciputa='2020-04-30';
 select * from prijatelj;
 
+#tablica brat brisanje vrijednosti ogrlice razlicito od 14
+insert into neprijatelj(haljina,modelnaocala,kuna) values
+('plava','zute',15.98),
+('crvena','crna',25.89),
+('zuta','zelena',67.58);
+insert into brat(ogrlica,asocijalno,neprijatelj) values
+(15,1,1),
+(14,1,1),
+(8,1,1);
+select * from brat;
+delete from brat where ogrlica!=14;
+select * from brat;
+
 
 
