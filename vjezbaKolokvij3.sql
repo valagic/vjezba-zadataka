@@ -65,8 +65,17 @@ create table punica(
 );
 
 create table brat(
+	sifra int not null primary key auto_increment,
 	jmbg char(11),
 	ogrlica int not null,
 	ekstroventno bit not null
 );
+
+alter table svekar add foreign key(cura) references cura(sifra);
+alter table snasa add foreign key(ostavljena) references ostavljena(sifra);
+alter table ostavljena add foreign key(prijatelj) references prijatelj(sifra);
+alter table prijatelj_brat add foreign key(prijatelj) references prijatelj(sifra);
+
+alter table punica add foreign key(snasa) references snasa(sifra);
+alter table prijatelj_brat add foreign key(brat) references brat(sifra);
 
