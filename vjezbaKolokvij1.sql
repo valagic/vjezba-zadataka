@@ -140,7 +140,7 @@ where d.hlace like 'a%' and c.haljina like '%ba%';
 #ključ ne nalaze u tablici sestra_svekar
 
 select c.haljina,c.maraka 
-from sestra_svekar a inner join sestra c on a.sestra=c.sifra
+from sestra_svekar a left join sestra c on a.sestra=c.sifra
 where a.sestra is null;
 
 
