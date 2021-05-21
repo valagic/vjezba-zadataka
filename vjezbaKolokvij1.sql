@@ -136,5 +136,13 @@ inner join muskarac e on e.zena=d.sifra
 inner join mladic f on f.muskarac=e.sifra 
 where d.hlace like 'a%' and c.haljina like '%ba%';
 
+#Prikažite kolone haljina i maraka iz tablice sestra čiji se primarni 
+#ključ ne nalaze u tablici sestra_svekar
+
+select c.haljina,c.maraka 
+from sestra_svekar a inner join sestra c on a.sestra=c.sifra
+where a.sestra is null;
+
+
 
 
