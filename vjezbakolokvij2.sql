@@ -154,6 +154,7 @@ where d.drugiputa is not null and c.vesta like '%ba%';
 #ključ ne nalaze u tablici decko_zarucnica. 
 
 select b.asocijalno, b.vesta 
-from decko_zarucnica a inner join decko b on a.decko=b.sifra 
+from decko_zarucnica a left join decko b on a.decko=b.sifra 
 where a.decko is null;
+
 
