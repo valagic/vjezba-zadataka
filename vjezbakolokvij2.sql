@@ -45,7 +45,7 @@ create table svekar (
 create table zarucnica (
 	sifra int not null primary key auto_increment,
 	narukvica int,
-	bojakosa varchar(37) not null,
+	bojakose varchar(37) not null,
 	novcica decimal(15,9),
 	lipa decimal(15,8) not null,
 	indiferentno bit not null
@@ -76,6 +76,36 @@ alter table prijatelj add foreign key(svekar) references svekar(sifra);
 alter table decko_zarucnica add foreign key(zarucnica) references zarucnica(sifra);
 alter table neprijatelj add foreign key(cura) references cura(sifra);
 alter table brat add foreign key(neprijatelj) references neprijatelj(sifra);
+
+
+#neprijatelj,cura,decko_zarucnica 3 retka
+
+insert into zarucnica(bojakose,lipa,indiferentno) values
+('crvena',45.67,1);
+
+insert into decko(asocijalno) values
+(0);
+
+insert into decko_zarucnica(decko,zarucnica) values
+(1,1),
+(1,1),
+(1,1);
+
+insert into cura(haljina,drugiputa,majica) values
+('plava','2021-05-22','zuta'),
+('crvena','2021-05-23','plava'),
+('zelena','2021-05-24','crna');
+
+insert into neprijatelj(haljina,modelnaocala,kuna) values
+('plava','zute',15.98),
+('crvena','crna',25.89),
+('zuta','zelena',67.58);
+
+select * from zarucnica;
+select * from decko;
+select * from decko_zarucnica;
+select * from cura;
+select * from neprijatelj;
 
 
 
