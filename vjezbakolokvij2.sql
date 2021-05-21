@@ -142,3 +142,14 @@ insert into cura(haljina,drugiputa,majica) values
 
 select * from cura where drugiputa is null;
 
+select a.novcica, f.neprijatelj, e.haljina 
+from zarucnica a inner join decko_zarucnica b on a.sifra=b.zarucnica
+inner join decko c on b.decko=c.sifra 
+inner join cura d on d.decko=c.sifra
+inner join neprijatelj e on e.cura=d.sifra 
+inner join brat f on f.neprijatelj=e.sifra 
+where d.drugiputa is not null and c.vesta like '%ba%';
+
+
+
+
