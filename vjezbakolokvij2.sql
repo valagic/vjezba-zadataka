@@ -153,8 +153,8 @@ where d.drugiputa is not null and c.vesta like '%ba%';
 #Prikažite kolone vesta i asocijalno iz tablice decko čiji se primarni 
 #ključ ne nalaze u tablici decko_zarucnica. 
 
-select b.asocijalno, b.vesta 
-from decko b 
-where not exists (select * from decko_zarucnica a where b.sifra = a.zarucnica);
+select c.asocijalno, c.vesta 
+from decko c 
+where not exists (select * from decko_zarucnica b where c.sifra = b.zarucnica);
 
 
