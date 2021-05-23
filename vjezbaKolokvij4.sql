@@ -95,3 +95,35 @@ insert into becar(kratkamajica,bojaociju,snasa) values
 ('plava','plava',1),
 ('zuta','zuta',1),
 ('crna','crna',1);
+
+ /*U tablici punac postavite svim zapisima kolonu majica na 
+vrijednost Osijek*/
+
+insert into ostavljen(kuna) values
+(235.23);
+insert into punac(jmbg,novcica,maraka,ostavljen) values
+(11111111111,55.45,56.78,1);
+select * from punac;
+update punac set majica='Osijek';
+
+/*. U tablici prijatelj obrišite sve zapise čija je vrijednost kolone 
+prstena veće od 17.*/
+insert into zena(suknja,prstena) values
+('crevena',1);
+insert into snasa(haljina,zena) values
+('plava',1),
+('crvena',1),
+('zuta',1);
+insert into becar(kratkamajica,bojaociju,snasa) values
+('plava','plava',1),
+('zuta','zuta',1),
+('crna','crna',1);
+insert into prijatelj(prstena,jmbg,suknja,becar) values
+(4,22222222222,'plava',1),
+(24,22222222222,'plava',1),
+(8,22222222222,'plava',1),
+(45,22222222222,'plava',1),
+(88,22222222222,'plava',1);
+select * from prijatelj;
+
+delete from prijatelj where prstena >17;
