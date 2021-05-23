@@ -135,3 +135,18 @@ insert into ostavljena(lipa,modelnaocala) values
 (35,'suzuki');
 select majica from ostavljena where lipa not in (9,10,20,30,35);
 
+/*Prikažite ekstroventno iz tablice brat, vesta iz tablice punica te 
+kuna iz tablice snasa uz uvjet da su vrijednosti kolone lipa iz tablice 
+ostavljena različito od 91 te da su vrijednosti kolone haljina iz tablice 
+prijatelj sadrže niz znakova ba. Podatke posložite po kuna iz tablice 
+snasa silazno. */
+
+select a.ekstroventno, f.vesta, e.kuna 
+from brat a inner join prijatelj_brat b on b.brat=a.sifra
+inner join prijatelj c on b.prijatelj=c.sifra 
+inner join ostavljena d on d.prijatelj=c.sifra 
+inner join snasa e on e.ostavljena=d.sifra 
+inner join punica f on f.snasa=e.sifra 
+where d.lipa !=91 and c.haljina like '%ba%';
+
+
