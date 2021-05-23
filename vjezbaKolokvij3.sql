@@ -97,6 +97,16 @@ select * from snasa;
 select * from brat;
 select * from prijatelj_brat;
 
+#U tablici svekar postavite svim zapisima kolonu suknja na 
+#vrijednost Osijek
+
+insert into cura(ogrlica) values
+(1);
+insert into svekar(novcica,suknja,narukvica,cura) values
+(67.67,'bijela',1,1);
+select * from svekar;
+
+update svekar set suknja='Osijek';
 
 
 
