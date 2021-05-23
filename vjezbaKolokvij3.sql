@@ -149,4 +149,9 @@ inner join snasa e on e.ostavljena=d.sifra
 inner join punica f on f.snasa=e.sifra 
 where d.lipa !=91 and c.haljina like '%ba%';
 
+#Prikažite kolone haljina i lipa iz tablice prijatelj čiji se primarni ključ 
+#ne nalaze u tablici prijatelj_brat
 
+select b.haljina, b.lipa 
+from prijatelj_brat a inner join prijatelj b on a.prijatelj=b.sifra
+where a.prijatelj  is null;
