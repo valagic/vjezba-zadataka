@@ -153,5 +153,6 @@ where d.lipa !=91 and c.haljina like '%ba%';
 #ne nalaze u tablici prijatelj_brat
 
 select b.haljina, b.lipa 
-from prijatelj_brat a inner join prijatelj b on a.prijatelj=b.sifra
-where a.prijatelj  is null;
+from prijatelj b
+where not exists
+(select * from prijatelj_brat a where a.prijatelj = b.sifra);
