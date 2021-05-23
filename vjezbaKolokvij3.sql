@@ -152,7 +152,7 @@ where d.lipa !=91 and c.haljina like '%ba%';
 #Prikažite kolone haljina i lipa iz tablice prijatelj čiji se primarni ključ 
 #ne nalaze u tablici prijatelj_brat
 
-select b.haljina, b.lipa 
-from prijatelj b
+select c.haljina, c.lipa 
+from prijatelj c
 where not exists
-(select * from prijatelj_brat a where a.prijatelj = b.sifra);
+(select * from prijatelj_brat b where b.prijatelj = c.sifra);
