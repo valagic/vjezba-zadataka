@@ -30,7 +30,7 @@ create table snasa (
 create table zena (
 	sifra int not null primary key auto_increment,
 	suknja varchar(39) not null,
-	lika decimal(18,7),
+	lipa decimal(18,7),
 	prstena int not null
 );
 
@@ -135,4 +135,16 @@ select * from snasa;
 
 select * from snasa where treciputa is null;
 
+/*Prikažite nausnica iz tablice mladic, jmbag iz tablice prijatelj te 
+kratkamajica iz tablice becar uz uvjet da su vrijednosti kolone 
+treciputa iz tablice snasa poznate te da su vrijednosti kolone lipa iz 
+tablice zena različite od 29. Podatke posložite po kratkamajica iz 
+tablice becar silazno. */
 
+select a.nausnica , f.jmbg , e.kratkamajica 
+from mladic a inner join zena_mladic b on b.mladic=a.sifra
+inner join zena c on b.zena = c.sifra 
+inner join snasa d on c.sifra =d.zena 
+inner join becar e on e.snasa = d.sifra 
+inner join prijatelj f on e.sifra = f.becar 
+where d.treciputa is not null and c.lipa; 
