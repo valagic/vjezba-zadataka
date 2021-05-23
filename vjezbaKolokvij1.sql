@@ -139,9 +139,10 @@ where d.hlace like 'a%' and c.haljina like '%ba%';
 #Prikažite kolone haljina i maraka iz tablice sestra čiji se primarni 
 #ključ ne nalaze u tablici sestra_svekar
 
-select c.haljina,c.maraka 
-from sestra_svekar a left join sestra c on a.sestra=c.sifra
-where a.sestra is null;
+select c.haljina, c.maraka 
+from sestra c
+where not exists
+(select * from sestra_svekar b where b.sestra = c.sifra);
 
 
 
