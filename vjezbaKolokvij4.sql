@@ -141,10 +141,17 @@ treciputa iz tablice snasa poznate te da su vrijednosti kolone lipa iz
 tablice zena različite od 29. Podatke posložite po kratkamajica iz 
 tablice becar silazno. */
 
-select a.nausnica , f.jmbg , e.kratkamajica 
+select e.kratkamajica, f.jmbg , a.nausnica
 from mladic a inner join zena_mladic b on b.mladic=a.sifra
 inner join zena c on b.zena = c.sifra 
 inner join snasa d on c.sifra =d.zena 
 inner join becar e on e.snasa = d.sifra 
 inner join prijatelj f on e.sifra = f.becar 
 where d.treciputa is not null and c.lipa; 
+
+/*. Prikažite kolone lipa i prstena iz tablice zena čiji se primarni ključ 
+ne nalaze u tablici zena_mladic. */
+
+select c.lipa, c.prstena 
+from zena c
+where not exists (select * from  zena_mladic b where b.zena=c.sifra);
