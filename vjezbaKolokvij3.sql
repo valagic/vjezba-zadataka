@@ -108,6 +108,18 @@ select * from svekar;
 
 update svekar set suknja='Osijek';
 
+#U tablici punica obrišite sve zapise čija je vrijednost kolone 
+#kratkamajica jednako AB.
+
+insert into ostavljena(modelnaocala) values
+('suzuki');
+insert into snasa(kuna,eura,ostavljena) values
+(55.44,88.77,1);
+insert into punica(kuna,vesta) values
+(124.56,'dugacka');
+select * from punica;
+
+delete from punica where kratkamajica='AB';
 
 
 
