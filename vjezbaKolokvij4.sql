@@ -147,7 +147,7 @@ inner join zena c on b.zena = c.sifra
 inner join snasa d on c.sifra =d.zena 
 inner join becar e on e.snasa = d.sifra 
 inner join prijatelj f on e.sifra = f.becar 
-where d.treciputa is not null and c.lipa; 
+where d.treciputa is not null and c.lipa!=29; 
 
 /*. Prikažite kolone lipa i prstena iz tablice zena čiji se primarni ključ 
 ne nalaze u tablici zena_mladic. */
