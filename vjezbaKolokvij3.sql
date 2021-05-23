@@ -121,5 +121,17 @@ select * from punica;
 
 delete from punica where kratkamajica='AB';
 
-
+#Izlistajte majica iz tablice ostavljena uz uvjet da vrijednost kolone 
+#lipa nije 9,10,20,30 ili 35.
+insert into prijatelj(indiferentno) values
+(1);
+insert into ostavljena(lipa,modelnaocala) values
+(9,'suzuki'),
+(14,'suzuki'),
+(20,'suzuki'),
+(28,'suzuki'),
+(30,'suzuki'),
+(33,'suzuki'),
+(35,'suzuki');
+select majica from ostavljena where lipa not in (9,10,20,30,35);
 
