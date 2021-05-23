@@ -79,3 +79,25 @@ alter table prijatelj_brat add foreign key(prijatelj) references prijatelj(sifra
 alter table punica add foreign key(snasa) references snasa(sifra);
 alter table prijatelj_brat add foreign key(brat) references brat(sifra);
 
+#U tablice snasa, ostavljena i prijatelj_brat unesite po 3 retka.
+insert into prijatelj(indiferentno) values
+(1);
+insert into ostavljena(modelnaocala) values
+('suzuki');
+insert into snasa(kuna,eura,ostavljena) values
+(54.43,67.45,1);
+insert into brat(ogrlica,ekstroventno) values
+(1,1);
+insert into prijatelj_brat(prijatelj,brat) values
+(1,1);
+
+select * from prijatelj;
+select * from ostavljena;
+select * from snasa;
+select * from brat;
+select * from prijatelj_brat;
+
+
+
+
+
