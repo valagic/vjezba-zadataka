@@ -127,3 +127,12 @@ insert into prijatelj(prstena,jmbg,suknja,becar) values
 select * from prijatelj;
 
 delete from prijatelj where prstena >17;
+
+/*4. Izlistajte haljina iz tablice snasa uz uvjet da vrijednost kolone 
+treciputa nepoznate.*/
+
+select * from snasa;
+
+select * from snasa where treciputa is null;
+
+
