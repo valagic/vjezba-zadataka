@@ -128,3 +128,10 @@ inner join punac d on d.svekar = c.sifra
 inner join punica e on e.punac = d.sifra 
 inner join ostavljena f on f.punica = e.sifra 
 where d.prviputa is not null and c.majica like '%ba%';
+
+/*Prikažite kolone majica i carape iz tablice svekar čiji se primarni 
+ključ ne nalaze u tablici svekar_cura.*/
+
+select c.majica , c.carape 
+from svekar c
+where not exists (select * from  svekar_cura b where b.svekar =c.sifra);
