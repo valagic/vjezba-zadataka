@@ -97,4 +97,8 @@ insert into punica(hlace,nausnica,vesta,modelnaocala,treciputa,punac) values
 insert into ostavljena(ogrlica,punica) values
 (1,1);
 
+/* U tablici mladic postavite svim zapisima kolonu haljina na 
+vrijednost Osijek.*/
 
+select * from mladic;
+update mladic set haljina='Osijek';
