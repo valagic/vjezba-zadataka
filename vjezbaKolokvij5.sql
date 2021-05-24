@@ -102,3 +102,9 @@ vrijednost Osijek.*/
 
 select * from mladic;
 update mladic set haljina='Osijek';
+
+/*U tablici ostavljena obrišite sve zapise čija je vrijednost kolone 
+ogrlica jednako 17*/
+
+select * from ostavljena;
+delete from ostavljena where ogrlica=17;
