@@ -114,3 +114,17 @@ prviputa nepoznate.*/
 
 select * from punac;
 select * from punac where prviputa is null;
+
+/*Prikažite asocijalno iz tablice cura, stilfrizura iz tablice ostavljena te 
+nausnica iz tablice punica uz uvjet da su vrijednosti kolone prviputa iz 
+tablice punac poznate te da su vrijednosti kolone majica iz tablice 
+svekar sadrže niz znakova ba. Podatke posložite po nausnica iz tablice 
+punica silazno.*/
+
+select a.asocijalno , f.stilfrizura , e.nausnica 
+from cura a inner join svekar_cura b on b.cura = a.sifra 
+inner join svekar c on b.svekar = c.sifra 
+inner join punac d on d.svekar = c.sifra 
+inner join punica e on e.punac = d.sifra 
+inner join ostavljena f on f.punica = e.sifra 
+where d.prviputa is not null and c.majica like '%ba%';
