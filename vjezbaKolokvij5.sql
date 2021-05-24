@@ -76,7 +76,25 @@ alter table svekar_cura add foreign key(cura) references cura(sifra);
 alter table punica add foreign key(punac) references punac(sifra);
 alter table ostavljena add foreign key(punica) references punica(sifra);
 
+# U tablice punica, punac i svekar_cura unesite po 3 retka.
 
-
+insert into svekar(carape,eura) values
+('plave',15.55);
+insert into punac(prviputa,svekar) values
+('2021-05-05',1),
+('2021-06-06',1),
+('2021-04-04',1);
+insert into cura(carape,maraka,vesta) values
+('plave',55.67,'plava');
+insert into svekar_cura(svekar,cura) values
+(1,1),
+(1,1),
+(1,1);
+insert into punica(hlace,nausnica,vesta,modelnaocala,treciputa,punac) values
+('plave',1,'plava','plave','2021-05-05',1),
+('zute',1,'zuta','zuta','2021-06-05',1),
+('crna',1,'crna','crne','2021-04-05',1);
+insert into ostavljena(ogrlica,punica) values
+(1,1);
 
 
