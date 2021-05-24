@@ -108,3 +108,9 @@ ogrlica jednako 17*/
 
 select * from ostavljena;
 delete from ostavljena where ogrlica=17;
+
+/*Izlistajte majica iz tablice punac uz uvjet da vrijednost kolone 
+prviputa nepoznate.*/
+
+select * from punac;
+select * from punac where prviputa is null;
