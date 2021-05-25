@@ -103,5 +103,21 @@ insert into svekrva(hlace,suknja,ogrlica,treciputa,dukserica,narukvica) values
 ('plave','plava',10,'2021-05-05','plava',10);
 update svekrva set suknja='Osijek';
 
+/*U tablici decko obrišite sve zapise čija je vrijednost kolone 
+modelnaocala manje od AB(18).*/
 
+select * from decko;
+insert into prijatelj(prstena,stilfrizura) values
+(10,'plava');
+insert into brat(nausnica,treciputa,narukvica) values
+(20,'2021-04-04',20),
+(10,'2021-05-05',10),
+(30,'2021-06-06',30);
+insert into zena(novcica,narukvica,dukserica,brat) values
+(0.10,10,'plava',1),
+(0.20,20,'crvena',1),
+(0.30,30,'zuta',1);
+insert into decko(zena) values
+(1);
 
+delete from decko where modelnaocala<18;
