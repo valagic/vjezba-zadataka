@@ -113,3 +113,21 @@ delete from sestra where hlace>15;
 kolone introvertno nepoznate.*/
 
 select kratkamajica from ostavljen where instroventno is null;
+
+/*Prikažite narukvica iz tablice mladic, stilfrizura iz tablice sestra te 
+gustoca iz tablice prijateljica uz uvjet da su vrijednosti kolone 
+introvertno iz tablice ostavljen poznate te da su vrijednosti kolone 
+asocijalno iz tablice zarucnik poznate. Podatke posložite po gustoca iz 
+tablice prijateljica silazno.*/
+
+select a.narukvica , f.stilfrizura , e.gustoca 
+from zarucnik_mladic b inner join mladic a on b.mladic =a.sifra 
+inner join zarucnik c on b.zarucnik = c.sifra 
+inner join ostavljen d on d.zarucnik = c.sifra 
+inner join prijateljica e on e.ostavljen  = d.sifra 
+inner join sestra f on f.prijateljica  = e.sifra 
+where d.instroventno is not null and c.asocijalno is not null 
+order by e.gustoca desc;
+
+
+
