@@ -129,5 +129,10 @@ inner join sestra f on f.prijateljica  = e.sifra
 where d.instroventno is not null and c.asocijalno is not null 
 order by e.gustoca desc;
 
+/*Prikažite kolone asocijalno i modelnaocala iz tablice zarucnik čiji se 
+primarni ključ ne nalaze u tablici zarucnik_mladic.*/
 
+select c.asocijalno , c.modelnaocala 
+from zarucnik c
+where not exists (select * from  zarucnik_mladic b where b.zarucnik =c.sifra);
 
