@@ -102,3 +102,8 @@ insert into prijateljica(gustoca) values
 15,77.*/
 
 update punica set eura=15.77;
+
+/*U tablici sestra obrišite sve zapise čija je vrijednost kolone hlace 
+manje od AB(15).*/
+delete from sestra where hlace>'AB';
+delete from sestra where hlace>15;
