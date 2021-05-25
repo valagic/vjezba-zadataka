@@ -98,3 +98,7 @@ insert into prijateljica(gustoca) values
 (44.44),
 (11.11);
 
+/*U tablici punica postavite svim zapisima kolonu eura na vrijednost 
+15,77.*/
+
+update punica set eura=15.77;
