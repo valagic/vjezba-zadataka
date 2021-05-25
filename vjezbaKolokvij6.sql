@@ -69,3 +69,14 @@ create table decko(
 	nausnica int,
 	zena int not null
 );
+
+alter table svekrva add foreign key(punac) references punac(sifra);
+alter table brat add foreign key(prijatelj) references prijatelj(sifra);
+alter table prijatelj_ostavljena add foreign key(prijatelj) references prijatelj(sifra);
+alter table prijatelj_ostavljena add foreign key(ostavljena) references ostavljena(sifra);
+alter table zena add foreign key(brat) references brat(sifra);
+alter table decko add foreign key(zena) references zena(sifra);
+
+
+
+
