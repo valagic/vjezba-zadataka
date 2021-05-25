@@ -96,4 +96,12 @@ insert into zena(novcica,narukvica,dukserica,brat) values
 (0.20,20,'crvena',1),
 (0.30,30,'zuta',1);
 
+/*U tablici svekrva postavite svim zapisima kolonu suknja na 
+vrijednost Osijek. */
+select * from svekrva;
+insert into svekrva(hlace,suknja,ogrlica,treciputa,dukserica,narukvica) values
+('plave','plava',10,'2021-05-05','plava',10);
+update svekrva set suknja='Osijek';
+
+
 
