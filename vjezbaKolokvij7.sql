@@ -78,5 +78,23 @@ alter table prijateljica add foreign key(ostavljen) references ostavljen(sifra);
 alter table sestra add foreign key(prijateljica) references prijateljica(sifra);
 alter table punica add foreign key(cura) references cura(sifra);
 
+/*U tablice prijateljica, ostavljen i zarucnik_mladic unesite po 3 
+retka. */
 
+insert into mladic(lipa,narukvica,drugiputa) values
+(55.55,5,'2021-05-05');
+insert into zarucnik(asocijalno,narukvica,novcica) values
+(1,1,44.44);
+insert into zarucnik_mladic(zarucnik,mladic) values
+(1,1),
+(1,1),
+(1,1);
+insert into ostavljen(instroventno,kratkamajica,prstena) values
+(1,'plava',1),
+(1,'crvena',1),
+(1,'zuta',1);
+insert into prijateljica(gustoca) values
+(33.33),
+(44.44),
+(11.11);
 
