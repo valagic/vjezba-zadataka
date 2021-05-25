@@ -121,3 +121,10 @@ insert into decko(zena) values
 (1);
 
 delete from decko where modelnaocala<18;
+
+/*Izlistajte narukvica iz tablice brat uz uvjet da vrijednost kolone 
+treciputa nepoznate.*/
+
+select * from brat;
+select narukvica from brat where treciputa is null;
+
