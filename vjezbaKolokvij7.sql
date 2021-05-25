@@ -16,7 +16,7 @@ create table mladic(
 	drugiputa datetime not null
 );
 
-create table ostavljena(
+create table ostavljen(
 	sifra int not null primary key auto_increment,
 	lipa decimal(20,10),
 	instroventno bit not null,
@@ -50,7 +50,7 @@ create table prijateljica(
 	gustoca decimal(20,10) not null,
 	orgrlica int,
 	novcica decimal(20,10),
-	ostavljena int
+	ostavljen int
 );
 
 create table punica(
@@ -70,4 +70,13 @@ create table cura(
 	treciputa datetime,
 	kuna decimal(20,10)
 );
+
+alter table zarucnik_mladic add foreign key(mladic) references mladic(sifra);
+alter table zarucnik_mladic add foreign key(zarucnik) references zarucnik(sifra);
+alter table ostavljen add foreign key(zarucnik) references zarucnik(sifra);
+alter table prijateljica add foreign key(ostavljen) references ostavljen(sifra);
+alter table sestra add foreign key(prijateljica) references prijateljica(sifra);
+alter table punica add foreign key(cura) references cura(sifra);
+
+
 
