@@ -23,8 +23,8 @@ create table svekrva(
 
 create table brat(
 	sifra int not null primary key auto_increment,
-	treciputa datetime not null,
 	nausnica int not null,
+	treciputa datetime not null,
 	narukvica int not null,
 	hlace varchar(50),
 	prijatelj int
@@ -77,6 +77,23 @@ alter table prijatelj_ostavljena add foreign key(ostavljena) references ostavlje
 alter table zena add foreign key(brat) references brat(sifra);
 alter table decko add foreign key(zena) references zena(sifra);
 
+#U tablice zena, brat i prijatelj_ostavljena unesite po 3 retka. 
 
+insert into prijatelj(prstena,stilfrizura) values
+(10,'plava');
+insert into ostavljena(prviputa,kratkamajica) values
+('2021-06-06','plava');
+insert into prijatelj_ostavljena(prijatelj,ostavljena) values
+(1,1),
+(1,1),
+(1,1);
+insert into brat(nausnica,treciputa,narukvica) values
+(20,'2021-04-04',20),
+(10,'2021-05-05',10),
+(30,'2021-06-06',30);
+insert into zena(novcica,narukvica,dukserica,brat) values
+(0.10,10,'plava',1),
+(0.20,20,'crvena',1),
+(0.30,30,'zuta',1);
 
 
