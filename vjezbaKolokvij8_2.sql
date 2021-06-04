@@ -75,3 +75,63 @@ alter table muskarac_decko add foreign key(muskarac) references muskarac(sifra);
 alter table muskarac_decko add foreign key(decko) references decko(sifra);
 alter table brat add foreign key(neprijatelj) references neprijatelj(sifra);
 
+/*1. U tablice neprijatelj, becar i muskarac_decko unesite po 3 retka*/
+
+insert into decko(treciputa,ogrlica,ekstroventno) values
+('2021-05-05',1,1);
+insert into muskarac(drugiputa) values
+('2021-05-06');
+insert into muskarac_decko(muskarac,decko) values
+(1,1),
+(1,1),
+(1,1);
+insert into becar(eura,muskarac) values
+(55.67,1),
+(11.45,1),
+(104.56,1);
+insert into neprijatelj(ogrlica,becar) values
+(1,1),
+(1,1),
+(1,1);
+
+/*U tablici cura postavite svim zapisima kolonu indiferentno na 
+vrijednost false*/
+
+update cura set indiferentno=false;
+
+/*U tablici brat obrišite sve zapise čija je vrijednost kolone novcica 
+različito od 12,75. (*/
+
+insert into brat(novcica) values
+(12.75),
+(22.22),
+(8.54);
+select * from brat;
+delete from brat where novcica != 12.75;
+
+/*Izlistajte prviputa iz tablice becar uz uvjet da vrijednost kolone 
+treciputa nepoznate.*/
+
+select * from becar where treciputa is null;
+
+/*Prikažite bojakose iz tablice decko, neprijatelj iz tablice brat te 
+introvertno iz tablice neprijatelj uz uvjet da su vrijednosti kolone 
+treciputa iz tablice becar poznate te da su vrijednosti kolone 
+drugiputa iz tablice muskarac poznate. Podatke posložite po 
+introvertno iz tablice neprijatelj silazno. */
+
+select a.bojakose , f.neprijatelj , e.introventno 
+from decko a inner join muskarac_decko b on a.sifra = b.decko 
+inner join muskarac c on c.sifra = b.muskarac 
+inner join becar d on c.sifra = d.muskarac 
+inner join neprijatelj e on e.becar = d.sifra 
+inner join brat f on f.neprijatelj = e.sifra 
+where d.treciputa is not null and c.drugiputa is not null 
+order by e.indiferentno desc;
+
+/*Prikažite kolone drugiputa i treciputa iz tablice muskarac čiji se 
+primarni ključ ne nalaze u tablici muskarac_decko.*/
+
+select c.drugiputa, c.treciputa 
+from muskarac c
+where not exists (select * from  muskarac_decko b where b.muskarac =c.sifra);
