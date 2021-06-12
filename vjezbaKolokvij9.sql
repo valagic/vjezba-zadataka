@@ -98,11 +98,41 @@ insert into brat(novcica,vesta) values
 (20.55,'zuta'),
 (100.55,'crna');
 
+/* U tablici snasa postavite svim zapisima kolonu drugiputa na 
+vrijednost 24. travnja 2020.*/
 
+select * from snasa;
+update snasa set drugiputa='2020-04-24';
+
+/*U tablici zarucnik obrišite sve zapise čija je vrijednost kolone 
+haljina jednako AB.*/
  
+select * from zarucnik;
+delete from zarucnik where haljina='AB';
 
+/* Izlistajte carape iz tablice cura uz uvjet da vrijednost kolone 
+ekstroventno nepoznate. */
 
+select carape from cura where ekstroventno is null;
 
+/*Prikažite kuna iz tablice prijateljica, nausnica iz tablice zarucnik te 
+ekstroventno iz tablice brat uz uvjet da su vrijednosti kolone 
+ekstroventno iz tablice cura poznate te da su vrijednosti kolone 
+modelnaocala iz tablice punac sadrže niz znakova ba. Podatke 
+posložite po ekstroventno iz tablice brat silazno*/
 
+select a.kuna , f.nausnica , e.ekstroventno 
+from prijateljica a inner join punac_prijateljica b on a.sifra = b.prijateljica 
+inner join punac c on b.punac = c.sifra 
+inner join cura d on d.punac = c.sifra 
+inner join brat e on e.cura = d.sifra 
+inner join zarucnik f on f.brat = e.sifra 
+where d.ekstroventno is not null and c.modelnaocala like '%ba%'
+order by e.ekstroventno desc;
 
+/*Prikažite kolone modelnaocala i kuna iz tablice punac čiji se 
+primarni ključ ne nalaze u tablici punac_prijateljica. */
 
+select c.modelnaocala , c.kuna 
+from punac c
+where not exists (select * from  punac_prijateljica b where b.punac =c.sifra);
