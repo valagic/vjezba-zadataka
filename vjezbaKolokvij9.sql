@@ -70,3 +70,39 @@ create table ostavljena(
 	treciputa datetime not null,
 	drugiputa datetime not null
 );
+
+alter table punac_prijateljica add foreign key(prijateljica) references prijateljica(sifra);
+alter table punac_prijateljica add foreign key(punac) references punac(sifra);
+alter table cura add foreign key (punac) references punac(sifra);
+alter table brat add foreign key(cura) references cura(sifra);
+alter table zarucnik add foreign key(brat) references brat(sifra);
+alter table snasa add foreign key(ostavljena) references ostavljena(sifra);
+
+
+/*U tablice brat, cura i punac_prijateljica unesite po 3 retka. */
+
+insert into prijateljica(kuna) values
+(5.55);
+insert into punac(narukvica) values
+(1);
+insert into punac_prijateljica(punac,prijateljica) values
+(1,1),
+(1,1),
+(1,1);
+insert into cura(vesta,suknja,punac) values
+('plava','plava',1),
+('zuta','zuta',1),
+('crna','crna',1);
+insert into brat(novcica,vesta) values
+(5.55,'plava'),
+(20.55,'zuta'),
+(100.55,'crna');
+
+
+ 
+
+
+
+
+
+
